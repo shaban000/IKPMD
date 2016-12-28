@@ -15,6 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Toevoegen" />
+        <activity android:name=".Leren" />
+        <activity android:name=".Status"></activity>
     </application>
 
 </manifest>
