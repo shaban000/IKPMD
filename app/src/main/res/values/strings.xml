@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Eindopdracht</string>
+    <string name="Instellingen">Instellingen</string>
+    <string name="Toevoegen">Toevoegen</string>
+    <string name="Leren">Leren</string>
+    <string name="Tedoen">Te doen</string>
+    <string name="Gedaan">Gedaan</string>
 </resources>
