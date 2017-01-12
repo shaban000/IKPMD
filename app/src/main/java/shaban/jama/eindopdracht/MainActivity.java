@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -46,10 +47,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         mChart = (PieChart) findViewById(R.id.chart);
-        mChart.setDescription("Status");
-        mChart.setTouchEnabled(true);
+        mChart.setDescription("Voortgang");
+        mChart.setTouchEnabled(false);
         mChart.setDrawSliceText(true);
         mChart.getLegend().setEnabled(false);
+
+
         mChart.setTransparentCircleColor(Color.rgb(130, 130, 130));
         mChart.animateY(2000, Easing.EasingOption.EaseInQuart);
 
@@ -87,19 +90,19 @@ public class MainActivity extends AppCompatActivity {
         mChart.setData(data);
     }
 
-    public void Status(View view){
+    public void status(View view){
         startActivity(new Intent(getApplicationContext(),Status.class));
     }
 
-    public void Leren(View view){
+    public void leren(View view){
         startActivity(new Intent(getApplicationContext(),Leren.class));
     }
 
-    public void Toevoegen(View view){
+    public void toevoegen(View view){
         startActivity(new Intent(getApplicationContext(),Toevoegen.class));
     }
 
-    public void Instellingen(View view){
+    public void instellingen(View view){
         startActivity(new Intent(getApplicationContext(),Toevoegen.class)); // View moet nog gemaakt worden.
     }
 

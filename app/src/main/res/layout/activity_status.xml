@@ -11,19 +11,48 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="shaban.jama.eindopdracht.Status">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="2"
+    <com.github.mikephil.charting.charts.CombinedChart
+        android:id="@+id/chart"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
 
-        <ImageButton
-            android:layout_width="match_parent"
-            android:layout_height="125dp"
-            app:srcCompat="@drawable/leren"
-            android:id="@+id/imageButton" />
-    </LinearLayout>
+    <TextView
+        android:layout_below="@+id/chart"
+        android:text="Leerdoelen behaald"
+        android:layout_width="match_parent"
+        android:id="@+id/textView5"
+        android:layout_height="wrap_content"
+        android:onClick="showlist"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:layout_below="@+id/listLeerdoelen"
+        android:text="De leerdoel beheers je het meest"
+        android:layout_width="match_parent"
+        android:id="@+id/textView7"
+        android:layout_height="wrap_content"
+        android:onClick="showlist"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:layout_below="@+id/textView7"
+        android:text="De leerdoel beheers je het minst"
+        android:layout_width="match_parent"
+        android:id="@+id/textView8"
+        android:layout_height="wrap_content"
+        android:onClick="showlist"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" />
+
+    <ListView
+        android:layout_below="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listLeerdoelen"
+        android:scrollbars="none" />
 </RelativeLayout>
