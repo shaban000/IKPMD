@@ -4,11 +4,14 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import shaban.jama.eindopdracht.Database.DatabaseHelper;
 import shaban.jama.eindopdracht.Database.DatabaseInfo;
+import shaban.jama.eindopdracht.R;
 import shaban.jama.eindopdracht.model.Subdoel;
 
 /**
@@ -27,8 +30,8 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<sHolder> {
 
     @Override
     public sHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.model,parent,false);
-        sHolder holder=new sHolder(parent);
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.model,parent,false);
+        sHolder holder=new sHolder(v);
         return holder;
     }
 
