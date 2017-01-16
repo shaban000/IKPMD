@@ -14,8 +14,12 @@ public class Subdoel {
     private String voldaan;
     private String fk_id_leerdoel;
 
-    public Subdoel(String s){
-        this.leerdoel_naam = s;
+//    public Subdoel(String s){
+//        this.leerdoel_naam = s;
+//    }
+
+    public Subdoel(){
+
     }
     public int getSubdoel_id() {
         return subdoel_id;
