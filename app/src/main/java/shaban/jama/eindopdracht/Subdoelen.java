@@ -56,25 +56,25 @@ public class Subdoelen extends AppCompatActivity {
         DatabaseHelper dbHelper = DatabaseHelper.getHelper(this);
 
 
-        ContentValues l_value = new ContentValues();
-        l_value.put(DatabaseInfo.Columns.LEERDOEL_NAME,"test");
+//        ContentValues l_value = new ContentValues();
+//        l_value.put(DatabaseInfo.Columns.LEERDOEL_NAME,"test");
+//
+//        dbHelper.insert(DatabaseInfo.databaseTabels.leerdoel, null, l_value);
+//
+//        Cursor rs = dbHelper.query(DatabaseInfo.databaseTabels.leerdoel,new String[]{"*"}, null, null, null, null, null);
+//        rs.moveToLast();
+//        Log.d("laaatse", "leerdoel :" +rs.getString(rs.getColumnIndex("Naam")));
+//        Log.d("laaatse", "leerdoel :" +rs.getString(rs.getColumnIndex("_id")));
+//
+//        ContentValues values = new ContentValues();
+//        values.put(DatabaseInfo.Columns.SUBDOEL_NAME,"Shaban");
+//        values.put(DatabaseInfo.Columns.WEEK,"WEEK2");
+//        values.put(DatabaseInfo.Columns.FK_ID_LEERDOEL,1);
+//        values.put(DatabaseInfo.Columns.VOLDAAN,Boolean.FALSE);
+//
+//        dbHelper.insert(DatabaseInfo.databaseTabels.subdoel, null, values);
 
-        dbHelper.insert(DatabaseInfo.databaseTabels.leerdoel, null, l_value);
-
-        Cursor rs = dbHelper.query(DatabaseInfo.databaseTabels.leerdoel,new String[]{"*"}, null, null, null, null, null);
-        rs.moveToLast();
-        Log.d("laaatse", "leerdoel :" +rs.getString(rs.getColumnIndex("Naam")));
-        Log.d("laaatse", "leerdoel :" +rs.getString(rs.getColumnIndex("_id")));
-
-        ContentValues values = new ContentValues();
-        values.put(DatabaseInfo.Columns.SUBDOEL_NAME,"Shaban");
-        values.put(DatabaseInfo.Columns.WEEK,"WEEK2");
-        values.put(DatabaseInfo.Columns.FK_ID_LEERDOEL,1);
-        values.put(DatabaseInfo.Columns.VOLDAAN,Boolean.FALSE);
-
-        dbHelper.insert(DatabaseInfo.databaseTabels.subdoel, null, values);
-
-         rs = dbHelper.query(DatabaseInfo.databaseTabels.subdoel, new String[]{"*"}, "Voldaan = 0", null, null, null, null);
+         Cursor rs = dbHelper.query(DatabaseInfo.databaseTabels.subdoel, new String[]{"*"}, "Voldaan = 0", null, null, null, null);
 
         while (rs.moveToNext()) {
             String naam = (String) rs.getString(rs.getColumnIndex(DatabaseInfo.Columns.SUBDOEL_NAME));
