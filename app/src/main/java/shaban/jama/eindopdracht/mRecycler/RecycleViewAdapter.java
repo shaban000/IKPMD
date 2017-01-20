@@ -14,6 +14,7 @@ import shaban.jama.eindopdracht.Database.DatabaseInfo;
 import shaban.jama.eindopdracht.R;
 import shaban.jama.eindopdracht.model.Subdoel;
 
+
 /**
  * Created by sangam on 10/01/2017.
  */

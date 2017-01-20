@@ -1,6 +1,5 @@
 package shaban.jama.eindopdracht;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.design.widget.FloatingActionButton;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -19,6 +17,7 @@ import shaban.jama.eindopdracht.Database.DatabaseInfo;
 import shaban.jama.eindopdracht.mRecycler.RecycleViewAdapter;
 import shaban.jama.eindopdracht.mSwiper.SwiperHelper;
 import shaban.jama.eindopdracht.model.Subdoel;
+
 
 public class Subdoelen extends AppCompatActivity {
 

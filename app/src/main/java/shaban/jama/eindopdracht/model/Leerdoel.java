@@ -3,28 +3,32 @@ package shaban.jama.eindopdracht.model;
 import java.util.ArrayList;
 
 /**
- * Created by sangam on 13/01/2017.
+ * Created by Shaban on 05-01-17.
  */
 
 public class Leerdoel {
-    private String leerdoel_naam;
-    private int leerdoel_id;
-
+    private String naam;
+    private int percentage;
     private ArrayList<Subdoel> subdoels;
 
-    public String getLeerdoel_naam() {
-        return leerdoel_naam;
+    public Leerdoel(String naam, int percentage) {
+        this.naam = naam;
+        this.percentage = percentage;
     }
 
-    public void setLeerdoel_naam(String leerdoel_naam) {
-        this.leerdoel_naam = leerdoel_naam;
+    public String getNaam() {
+        return naam;
     }
 
-    public int getLeerdoel_id() {
-        return leerdoel_id;
+    public void setNaam(String naam) {
+        this.naam = naam;
     }
 
-    public void setLeerdoel_id(int leerdoel_id) {
-        this.leerdoel_id = leerdoel_id;
+    public int getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(int percentage) {
+        this.percentage = percentage;
     }
 }

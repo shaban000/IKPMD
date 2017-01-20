@@ -1,7 +1,5 @@
 package shaban.jama.eindopdracht.model;
 
-import android.support.v7.widget.RecyclerView;
-
 /**
  * Created by sangam on 30/12/2016.
  */
@@ -9,14 +7,9 @@ import android.support.v7.widget.RecyclerView;
 public class Subdoel {
     private int subdoel_id;
     private String subdoel_naam;
-    private String leerdoel_naam;
     private String week;
     private String voldaan;
     private String fk_id_leerdoel;
-
-//    public Subdoel(String s){
-//        this.leerdoel_naam = s;
-//    }
 
     public Subdoel(){
 
@@ -50,14 +43,6 @@ public class Subdoel {
 
     public void setWeek(String week) {
         this.week = week;
-    }
-
-    public String getLeerdoel_naam() {
-        return leerdoel_naam;
-    }
-
-    public void setLeerdoel_naam(String leerdoel_naam) {
-        this.leerdoel_naam = leerdoel_naam;
     }
 
     public String getSubdoel_naam() {
