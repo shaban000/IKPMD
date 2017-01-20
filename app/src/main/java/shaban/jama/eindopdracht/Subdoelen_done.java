@@ -36,8 +36,8 @@ public class Subdoelen_done extends AppCompatActivity {
         while (rs.moveToNext()) {
             String naam = (String) rs.getString(rs.getColumnIndex(DatabaseInfo.Columns.SUBDOEL_NAME));
             Subdoel subdoel = new Subdoel();
-            subdoel.setSubdoel_naam(naam);
-            subdoel.setSubdoel_id(rs.getInt(rs.getColumnIndex("_id")));
+            subdoel.setNaam(naam);
+            subdoel.setId(rs.getInt(rs.getColumnIndex("_id")));
             subdoelen.add(subdoel);
         }
 

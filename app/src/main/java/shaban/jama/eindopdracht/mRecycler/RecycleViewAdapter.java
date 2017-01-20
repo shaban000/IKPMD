@@ -38,7 +38,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<sHolder> {
 
     @Override
     public void onBindViewHolder(sHolder holder, int position) {
-        holder.nametxt.setText(subdoels.get(position).getSubdoel_naam());
+        holder.nametxt.setText(subdoels.get(position).getNaam());
 
     }
 
@@ -51,7 +51,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<sHolder> {
         ContentValues values = new ContentValues();
         values.put(DatabaseInfo.Columns.VOLDAAN, voldaan);
         String where = "_id = ?";
-        String whereArgs [] = new String [] {String.valueOf(subdoels.get(pos).getSubdoel_id())};
+        String whereArgs [] = new String [] {String.valueOf(subdoels.get(pos).getId())};
 
         databaseHelper.update(DatabaseInfo.databaseTabels.subdoel,values, where, whereArgs );
         subdoels.remove(pos);

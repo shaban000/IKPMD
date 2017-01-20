@@ -5,8 +5,8 @@ package shaban.jama.eindopdracht.model;
  */
 
 public class Subdoel {
-    private int subdoel_id;
-    private String subdoel_naam;
+    private int id;
+    private String naam;
     private String week;
     private String voldaan;
     private String fk_id_leerdoel;
@@ -14,12 +14,12 @@ public class Subdoel {
     public Subdoel(){
 
     }
-    public int getSubdoel_id() {
-        return subdoel_id;
+    public int getId() {
+        return id;
     }
 
-    public void setSubdoel_id(int subdoel_id) {
-        this.subdoel_id = subdoel_id;
+    public void setId(int id) {
+        this.id = id;
     }
     public String getFk_id_leerdoel() {
         return fk_id_leerdoel;
@@ -45,11 +45,11 @@ public class Subdoel {
         this.week = week;
     }
 
-    public String getSubdoel_naam() {
-        return subdoel_naam;
+    public String getNaam() {
+        return naam;
     }
 
-    public void setSubdoel_naam(String subdoel_naam) {
-        this.subdoel_naam = subdoel_naam;
+    public void setNaam(String naam) {
+        this.naam = naam;
     }
 }
