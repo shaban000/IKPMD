@@ -35,10 +35,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + DatabaseInfo.databaseTabels.leerdoel + " (" +
                 BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                DatabaseInfo.Columns.LEERDOEL_NAME+ " TEXT);"
+                DatabaseInfo.Columns.LEERDOEL_NAME+ " TEXT NOT NULL UNIQUE);"
 
         );
-        Log.d("saban","create table");
         db.execSQL("CREATE TABLE " + DatabaseInfo.databaseTabels.subdoel + " (" +
                 BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 DatabaseInfo.Columns.SUBDOEL_NAME+ " TEXT," +
@@ -58,22 +57,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public void insert(String table, String nullColumnHack, ContentValues values){
         mSQLDB.insert(table, nullColumnHack, values);
-        Log.d("insert", "entry is toegevoegd");
+        Log.d("entry","entry is toegevoegd");
     }
 
     public Cursor query(String table, String[] columns, String selection, String[] selectArgs, String groupBy, String having, String orderBy){
         return mSQLDB.query(table, columns, selection, selectArgs, groupBy, having, orderBy);
     }
-    public void update(String table, ContentValues values, String where, String[]whereArgs){
-        mSQLDB.update(table,values,where,whereArgs);
-    }
-
     public Integer countTabel(String tabel){
-
-        String count = "SELECT count(*) FROM "+tabel;
+        String count = "SELECT count(*) FROM "+ tabel;
         Cursor mcursor = mSQLDB.rawQuery(count, null);
         mcursor.moveToFirst();
         return mcursor.getInt(0);
     }
-
 }
