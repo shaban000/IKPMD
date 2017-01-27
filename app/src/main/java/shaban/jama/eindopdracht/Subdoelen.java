@@ -73,10 +73,11 @@ public class Subdoelen extends AppCompatActivity {
 //
 //        dbHelper.insert(DatabaseInfo.databaseTabels.subdoel, null, values);
 
+
          Cursor rs = dbHelper.query(DatabaseInfo.databaseTabels.subdoel, new String[]{"*"}, "Voldaan = 0", null, null, null, null);
 
         while (rs.moveToNext()) {
-            String naam = (String) rs.getString(rs.getColumnIndex(DatabaseInfo.Columns.SUBDOEL_NAME));
+            String naam = rs.getString(rs.getColumnIndex(DatabaseInfo.Columns.SUBDOEL_NAME));
             Subdoel subdoel = new Subdoel();
             subdoel.setNaam(naam);
             subdoel.setId(rs.getInt(rs.getColumnIndex("_id")));

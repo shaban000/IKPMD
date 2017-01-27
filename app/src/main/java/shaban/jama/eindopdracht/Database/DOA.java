@@ -105,6 +105,7 @@ public class DOA {
                     values.put(DatabaseInfo.Columns.SUBDOEL_NAME, subdoel.getString("naam"));
                     values.put(DatabaseInfo.Columns.WEEK, subdoel.getString("week"));
                     values.put(DatabaseInfo.Columns.FK_ID_LEERDOEL, subdoel.getString("leerdoel_id"));
+                    values.put(DatabaseInfo.Columns.VOLDAAN, 0);
                     dbHelper.insert(DatabaseInfo.databaseTabels.subdoel, null, values);
                 } catch (JSONException e) {
                     e.printStackTrace();

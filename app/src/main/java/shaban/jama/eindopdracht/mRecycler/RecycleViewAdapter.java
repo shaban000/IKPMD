@@ -46,6 +46,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<sHolder> {
     public int getItemCount() {
         return subdoels.size();
     }
+
     public void updateModel(int pos, Boolean voldaan)
     {
         ContentValues values = new ContentValues();
