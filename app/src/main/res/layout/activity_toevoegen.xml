@@ -30,7 +30,7 @@
             android:inputType="textPersonName"
             android:text="Subdoel"
             android:ems="10"
-            android:id="@+id/editText" />
+            android:id="@+id/subdoel_toevoegen" />
 
         <TextView
             android:text="Leerdoelen"
@@ -60,6 +60,6 @@
             android:text="Toevoegen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button" />
+            android:id="@+id/btn_toevoegen" />
     </LinearLayout>
 </RelativeLayout>
