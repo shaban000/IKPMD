@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import shaban.jama.eindopdracht.R;
-import shaban.jama.eindopdracht.model.Subdoel;
+import shaban.jama.eindopdracht.Model.Subdoel;
 
 /**
  * Created by sangam on 20/01/2017.

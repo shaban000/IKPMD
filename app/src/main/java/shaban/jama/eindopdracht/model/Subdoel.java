@@ -1,4 +1,4 @@
-package shaban.jama.eindopdracht.model;
+package shaban.jama.eindopdracht.Model;
 
 /**
  * Created by sangam on 30/12/2016.

@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import shaban.jama.eindopdracht.model.Leerdoel;
+import shaban.jama.eindopdracht.Model.Leerdoel;
 import shaban.jama.eindopdracht.R;
 
 /**

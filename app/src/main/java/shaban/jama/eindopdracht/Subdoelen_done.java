@@ -14,7 +14,7 @@ import shaban.jama.eindopdracht.Database.DatabaseHelper;
 import shaban.jama.eindopdracht.Database.DatabaseInfo;
 import shaban.jama.eindopdracht.mRecycler.RecycleViewAdapter;
 import shaban.jama.eindopdracht.mSwiper.SwiperHelper;
-import shaban.jama.eindopdracht.model.Subdoel;
+import shaban.jama.eindopdracht.Model.Subdoel;
 
 public class Subdoelen_done extends AppCompatActivity {
 

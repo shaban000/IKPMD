@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 import shaban.jama.eindopdracht.Adapter.LeerdoelAdapter;
-import shaban.jama.eindopdracht.model.Leerdoel;
+import shaban.jama.eindopdracht.Model.Leerdoel;
 
 public class Status extends AppCompatActivity {
     private CombinedChart mChart;

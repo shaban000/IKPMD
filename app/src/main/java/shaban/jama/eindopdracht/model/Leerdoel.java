@@ -1,4 +1,4 @@
-package shaban.jama.eindopdracht.model;
+package shaban.jama.eindopdracht.Model;
 
 import java.util.ArrayList;
 

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import shaban.jama.eindopdracht.Database.DatabaseHelper;
 import shaban.jama.eindopdracht.Database.DatabaseInfo;
 import shaban.jama.eindopdracht.R;
-import shaban.jama.eindopdracht.model.Subdoel;
+import shaban.jama.eindopdracht.Model.Subdoel;
 
 
 /**
