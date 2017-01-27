@@ -47,8 +47,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 DatabaseInfo.Columns.FK_ID_LEERDOEL + " INTEGER," +
                 " FOREIGN KEY (id_leerdoel) REFERENCES "+DatabaseInfo.databaseTabels.leerdoel+" (_id));"
         );
-        Log.d("saban","create table2");
-
 
     }
     @Override
