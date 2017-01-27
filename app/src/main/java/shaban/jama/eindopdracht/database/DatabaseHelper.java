@@ -68,6 +68,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor mcursor = mSQLDB.rawQuery(count, null);
         mcursor.moveToFirst();
         return mcursor.getInt(0);
+//        if(icount>0){
+//            return true;
+//        } else{
+//            return false;
+//        }
     }
     public void update(String table, ContentValues values, String where, String[]whereArgs){
         mSQLDB.update(table,values,where,whereArgs);
