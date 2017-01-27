@@ -1,5 +1,6 @@
 package shaban.jama.eindopdracht;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -7,17 +8,32 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import shaban.jama.eindopdracht.Database.DOA;
+import shaban.jama.eindopdracht.Database.DatabaseHelper;
+import shaban.jama.eindopdracht.Database.DatabaseInfo;
 
 public class MainActivity extends AppCompatActivity {
     private PieChart mChart;
+    private String getUrl = "http://145.101.74.227/IKPMD/showLeerdoelen.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
         mChart.animateY(2000, Easing.EasingOption.EaseInQuart);
 
         setdata(); // tijdelijke voorbeeld data.
+        setupDatabase();
+
     }
 
     private void setdata() {
@@ -88,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         PieData data = new PieData(xValues, dataSet);
         mChart.setData(data);
+
     }
 
     public void status(View view){
@@ -103,7 +122,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void instellingen(View view){
-        startActivity(new Intent(getApplicationContext(),Toevoegen.class)); // View moet nog gemaakt worden.
+        startActivity(new Intent(getApplicationContext(),Login.class)); // View moet nog gemaakt worden.
     }
 
+    public void setupDatabase(){
+        DOA doa = new DOA(getApplicationContext());
+        doa.getLeerdoelen();
+        doa.getSubdoelen();
+    }
 }
