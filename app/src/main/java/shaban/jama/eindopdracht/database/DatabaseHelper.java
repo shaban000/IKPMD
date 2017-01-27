@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static SQLiteDatabase mSQLDB;
     private static DatabaseHelper mInstance;
     public static final String dbName = "ikpmdV2.db";
-    public static final int dbVersion = 3;
+    public static final int dbVersion = 7;
 
     public DatabaseHelper(Context context) {
         super(context, dbName, null, dbVersion);
@@ -68,6 +68,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public void update(String table, ContentValues values, String where, String[]whereArgs){
         mSQLDB.update(table,values,where,whereArgs);
+    }
+
+    public Integer countTabel(String tabel){
+
+        String count = "SELECT count(*) FROM "+tabel;
+        Cursor mcursor = mSQLDB.rawQuery(count, null);
+        mcursor.moveToFirst();
+        return mcursor.getInt(0);
     }
 
 }

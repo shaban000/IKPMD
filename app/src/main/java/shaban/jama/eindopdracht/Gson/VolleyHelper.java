@@ -1,4 +1,4 @@
-package shaban.jama.eindopdracht.Gson;
+package shaban.jama.eindopdracht.GSON;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,10 +10,10 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
 /**
- * Created by Shaban on 13-12-16.
+ * Created by sangam on 30/12/2016.
  */
-public class VolleyHelper {
 
+public class VolleyHelper {
     private static VolleyHelper mInstance;
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
@@ -62,4 +62,6 @@ public class VolleyHelper {
     public ImageLoader getImageLoader() {
         return mImageLoader;
     }
+
 }
+

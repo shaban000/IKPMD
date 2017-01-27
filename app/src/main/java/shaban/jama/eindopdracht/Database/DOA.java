@@ -55,7 +55,7 @@ public class DOA {
     }
 
     private void vulLeerdoeleninDatabase(JSONArray leerdoelen){
-        int huidige = dbHelper.CountTabel(DatabaseInfo.databaseTabels.leerdoel);
+        int huidige = dbHelper.countTabel(DatabaseInfo.databaseTabels.leerdoel);
         Log.d("----leerdoelen---","aantal in tabel: "+huidige);
         if(huidige < leerdoelen.length()) {
             for (int i = 0; i < leerdoelen.length(); i++) {
@@ -95,7 +95,7 @@ public class DOA {
     }
 
     private void vulsubdoeleninDatabase(JSONArray subdoelen){
-        int huidige = dbHelper.CountTabel(DatabaseInfo.databaseTabels.subdoel);
+        int huidige = dbHelper.countTabel(DatabaseInfo.databaseTabels.subdoel);
         Log.d("----subdoelen---","aantal in tabel: "+huidige);
         if(huidige < subdoelen.length()) {
             for (int i = 0; i < subdoelen.length(); i++) {

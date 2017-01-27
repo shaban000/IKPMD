@@ -1,4 +1,4 @@
-package shaban.jama.eindopdracht.Gson;
+package shaban.jama.eindopdracht.GSON;
 
 import android.util.Log;
 
@@ -16,14 +16,15 @@ import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
- * Created by Shaban on 13-12-16.
+ * Created by sangam on 30/12/2016.
  */
+
 public class GsonRequest<T> extends Request<T> {
     private final Gson gson = new Gson();
     private final Class<T> mClazz;
     private final Map<String, String> headers;
     private final Response.Listener<T> listener;
-    private final Type mType;
+    private final java.lang.reflect.Type mType;
     private final String TAG = "GsonRequest<T>";
 
     /**
@@ -52,7 +53,6 @@ public class GsonRequest<T> extends Request<T> {
         this.headers = headers;
         this.listener = listener;
     }
-
     @Override
     public Map<String, String> getHeaders() throws AuthFailureError {
         return headers != null ? headers : super.getHeaders();
@@ -62,10 +62,11 @@ public class GsonRequest<T> extends Request<T> {
     protected void deliverResponse(T response) {
         listener.onResponse(response);
     }
+
     @Override
     protected Response<T> parseNetworkResponse(NetworkResponse response) {
         try {
-            String json = new String(response.data,HttpHeaderParser.parseCharset(response.headers));
+            String json = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
             Log.d(TAG, "RESPONSE = " + json);
             if (mClazz != null) {
                 return Response.success(gson.fromJson(json, mClazz), HttpHeaderParser.parseCacheHeaders(response));
@@ -77,6 +78,5 @@ public class GsonRequest<T> extends Request<T> {
         } catch (JsonSyntaxException e) {
             return Response.error(new ParseError(e));
         }
-    }
+    } // end parseNetwResp
 }
-
