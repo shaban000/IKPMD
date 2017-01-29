@@ -180,25 +180,33 @@ public class DOA {
         requestQueue.add(stringRequest);
     }
 
-    public void ophalen() {
+    public void ophalen(String klantID) {
+        this.klantID = klantID;
         String getUrl = url+"getKlantSubdoelen.php";
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, getUrl, (String) null, new Response.Listener<JSONObject>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, getUrl, new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(String response) {
                 try{
-                    activeerSubdoelen(response.getJSONArray("KlantSubdoel"));
+                    JSONObject jsonObject = new JSONObject(response.toString());
+                    activeerSubdoelen(jsonObject.getJSONArray("KlantSubdoel"));
                 }catch(Exception e)
                 {
-
                 }
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("----error---",String.valueOf(error));
             }
-        }); requestQueue.add(jsonObjectRequest);
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("klantID", getKlantID());
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
     }
 
     public void activeerSubdoelen(JSONArray subdoelen){

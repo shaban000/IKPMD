@@ -35,6 +35,7 @@ public class Toevoegen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toevoegen);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Toevoegen");
         toevoegen= (EditText) findViewById(R.id.subdoel_toevoegen);
         btn_toevoegen = (Button)findViewById(R.id.btn_toevoegen);
         leerdoel = (Spinner) findViewById(R.id.leerdoelSpinner);

@@ -70,5 +70,6 @@
         android:layout_alignStart="@+id/buttonLogin"
         android:layout_marginTop="94dp"
         android:layout_alignRight="@+id/buttonLogin"
-        android:layout_alignEnd="@+id/buttonLogin" />
+        android:layout_alignEnd="@+id/buttonLogin"
+        android:onClick="verwijderData"/>
 </RelativeLayout>

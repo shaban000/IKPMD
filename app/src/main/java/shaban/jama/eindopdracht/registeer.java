@@ -31,6 +31,8 @@ public class registeer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registreer);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Registreer ");
 
 
         registeerButton = (Button) findViewById(R.id.registeer_button);

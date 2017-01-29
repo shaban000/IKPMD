@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static SQLiteDatabase mSQLDB;
     private static DatabaseHelper mInstance;
     public static final String dbName = "ikpmdV2.db";
-    public static final int dbVersion = 8;
+    public static final int dbVersion = 9;
 
     public DatabaseHelper(Context context) {
         super(context, dbName, null, dbVersion);

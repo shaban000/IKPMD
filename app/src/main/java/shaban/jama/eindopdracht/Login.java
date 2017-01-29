@@ -24,18 +24,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Login extends AppCompatActivity {
-    Button registeerButton;
-    Button inlogButton;
-    TextView inlognaam;
-    TextView wachtwoord;
-    TextView alleusers;
-    RequestQueue requestQueue;
-    String getUrl = "http://145.101.74.227/IKPMD/getUser.php";
+    private Button registeerButton;
+    private Button inlogButton;
+    private TextView inlognaam;
+    private TextView wachtwoord;
+    private TextView alleusers;
+    private RequestQueue requestQueue;
+    private String ip = Instellingen.getIp();
+    String getUrl = "http://"+ip+"/IKPMD/getUser.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Login");
 
         registeerButton = (Button) findViewById(R.id.registreerbutton);
         inlogButton = (Button) findViewById(R.id.inlogbutton);
@@ -74,7 +77,7 @@ public class Login extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                alleusers.setText("Error: \n\n" + error.toString());
+                Toast.makeText(getApplicationContext(),"Kan niet verbinden met de server.",Toast.LENGTH_SHORT).show();
             }
         }){
             @Override

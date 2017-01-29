@@ -16,20 +16,13 @@ public class Dataverwerking extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dataverwerking);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        String id = (String) getIntent().getSerializableExtra("id");
+        String naam = (String) getIntent().getSerializableExtra("naam");
+        getSupportActionBar().setTitle("Welkom "+naam);
 
         doa = new DOA(getApplicationContext());
         TextView text = (TextView) findViewById(R.id.errorscherm);
-
-        String id = (String) getIntent().getSerializableExtra("id");
-        String naam = (String) getIntent().getSerializableExtra("naam");
-        String inlognaam = (String) getIntent().getSerializableExtra("inlognaam");
-        String wachtwoord = (String) getIntent().getSerializableExtra("wachtwoord");
-
-        text.setText("");
-        text.append("id: "+id +"\n");
-        text.append("naam: "+naam +"\n");
-        text.append("inlognaam: "+inlognaam +"\n");
-        text.append("wachtwoord: "+wachtwoord +"\n");
 
         gebruikerid = id;
     }
@@ -40,7 +33,7 @@ public class Dataverwerking extends AppCompatActivity {
     }
 
     public void ophalen(View view){
-        doa.ophalen();
+        doa.ophalen(gebruikerid);
     }
 
 }

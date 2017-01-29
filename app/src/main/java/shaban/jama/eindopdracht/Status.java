@@ -45,6 +45,7 @@ public class Status extends AppCompatActivity {
         todoText =  (TextView) findViewById(R.id.todoview);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Status");
 
         listView = (ListView) findViewById(R.id.listLeerdoelen);
         listView.setVisibility(View.GONE);
