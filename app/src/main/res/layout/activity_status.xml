@@ -17,13 +17,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="150dp" />
 
     <TextView
         android:layout_below="@+id/chart"
         android:text="Leerdoelen behaald"
         android:layout_width="match_parent"
-        android:id="@+id/textView5"
+        android:id="@+id/textviewknop"
         android:layout_height="wrap_content"
         android:onClick="showlist"
         android:layout_marginTop="10dp"
@@ -33,24 +33,34 @@
         android:layout_below="@+id/listLeerdoelen"
         android:text="@string/Meest"
         android:layout_width="match_parent"
-        android:id="@+id/textView7"
+        android:id="@+id/todoview"
         android:layout_height="wrap_content"
-        android:onClick="showlist"
+        android:onClick="todoLeerdoelen"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp" />
 
     <TextView
-        android:layout_below="@+id/textView7"
-        android:text="@string/Minst"
+        android:layout_below="@+id/todoview"
+        android:text="@string/Meest"
         android:layout_width="match_parent"
         android:id="@+id/textView8"
         android:layout_height="wrap_content"
-        android:onClick="showlist"
+        android:onClick="sortHoog"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:layout_below="@+id/textView8"
+        android:text="@string/Minst"
+        android:layout_width="match_parent"
+        android:id="@+id/textView9"
+        android:layout_height="wrap_content"
+        android:onClick="sortLaag"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp" />
 
     <ListView
-        android:layout_below="@+id/textView5"
+        android:layout_below="@+id/textviewknop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/listLeerdoelen"

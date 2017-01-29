@@ -20,18 +20,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="51dp" />
 
-    <Button
-        android:text="Opslaan "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="138dp"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="102dp"
-        android:id="@+id/button4"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <TextView
         android:text='Klik op "Ophalen" als u uw voortgang van de server wilt ophalen. '
         android:layout_width="wrap_content"
@@ -57,6 +45,20 @@
         android:layout_marginTop="6dp"
         android:layout_below="@+id/textView16"
         android:layout_alignLeft="@+id/button4"
-        android:layout_alignStart="@+id/button4" />
+        android:layout_alignStart="@+id/button4"
+        android:onClick="ophalen" />
+
+    <Button
+        android:text="Opslaan "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="118dp"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="102dp"
+        android:id="@+id/button4"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="opslaan" />
 
 </RelativeLayout>

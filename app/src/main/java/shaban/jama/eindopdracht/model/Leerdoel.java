@@ -7,21 +7,21 @@ import java.util.ArrayList;
  */
 
 public class Leerdoel {
+    private int id;
     private String naam;
     private int percentage;
-    private ArrayList<Subdoel> subdoels;
 
-    public Leerdoel(String naam, int percentage) {
+    public Leerdoel(int id, String naam) {
+        this.id = id;
         this.naam = naam;
-        this.percentage = percentage;
+    }
+
+    public int getid() {
+        return id;
     }
 
     public String getNaam() {
         return naam;
-    }
-
-    public void setNaam(String naam) {
-        this.naam = naam;
     }
 
     public int getPercentage() {

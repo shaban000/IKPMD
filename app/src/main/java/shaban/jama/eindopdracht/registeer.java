@@ -25,7 +25,7 @@ public class registeer extends AppCompatActivity {
     TextView wachtwoord;
     TextView errorfield;
     RequestQueue requestQueue;
-    String insertUrl = "http://192.168.0.109/IKPMD/insertUser.php";
+    String insertUrl = "http://192.168.0.106/IKPMD/insertUser.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

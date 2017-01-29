@@ -2,6 +2,7 @@ package shaban.jama.eindopdracht;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,7 +34,6 @@ import shaban.jama.eindopdracht.Database.DatabaseInfo;
 
 public class MainActivity extends AppCompatActivity {
     private PieChart mChart;
-    private String getUrl = "http://145.101.74.227/IKPMD/showLeerdoelen.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,18 @@ public class MainActivity extends AppCompatActivity {
         instellingen.animate().setDuration(duration);
         instellingen.animate();
 
+        setupDatabase();
 
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setupDatabase();
+    }
+
+    private void setData() {
         mChart = (PieChart) findViewById(R.id.chart);
         mChart.setDescription("Voortgang");
         mChart.setTouchEnabled(false);
@@ -72,29 +83,34 @@ public class MainActivity extends AppCompatActivity {
         mChart.setTransparentCircleColor(Color.rgb(130, 130, 130));
         mChart.animateY(2000, Easing.EasingOption.EaseInQuart);
 
-        setdata(); // tijdelijke voorbeeld data.
-        setupDatabase();
+        DatabaseHelper dbHelper = DatabaseHelper.getHelper(getApplicationContext());
 
-    }
+        Cursor rs = dbHelper.query(DatabaseInfo.databaseTabels.subdoel, new String[]{"COUNT(*)"}, "Voldaan = 1", null, null, null, null);
+        rs.moveToFirst();
+        int currentEcts = rs.getInt(0);
+        int totaal = dbHelper.countTabel(DatabaseInfo.databaseTabels.subdoel);
 
-    private void setdata() {
-        int aantal = 80;
-        int currentEcts = aantal;
+        Log.d("----aantal: "+totaal,"---currentECTS: "+currentEcts);
         ArrayList<Entry> yValues = new ArrayList<>();
         ArrayList<String> xValues = new ArrayList<>();
 
-        yValues.add(new Entry(aantal, 0));
+        yValues.add(new Entry(currentEcts, 0));
         xValues.add(getResources().getString(R.string.Gedaan));
 
-        yValues.add(new Entry(100 - currentEcts, 1));
+        yValues.add(new Entry(totaal - currentEcts, 1));
         xValues.add(getResources().getString(R.string.Tedoen));
 
+        int test = 0;
+        if (currentEcts > 0) {
+            Log.d("testwaarde", String.valueOf((currentEcts * 100) / totaal));
+            test = ((currentEcts * 100) / totaal);
+        }
         ArrayList<Integer> colors = new ArrayList<>();
-        if (currentEcts <10) {
+        if (test < 30) {
             colors.add(Color.rgb(244,81,30));
-        } else if (currentEcts < 40){
+        } else if (test < 50){
             colors.add(Color.rgb(235,0,0));
-        } else if  (currentEcts < 50) {
+        } else if  (test < 70) {
             colors.add(Color.rgb(253,216,53));
         } else {
             colors.add(Color.rgb(67,160,71));
@@ -122,12 +138,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void instellingen(View view){
-        startActivity(new Intent(getApplicationContext(),Login.class)); // View moet nog gemaakt worden.
+        startActivity(new Intent(getApplicationContext(),Instellingen.class));
     }
 
     public void setupDatabase(){
         DOA doa = new DOA(getApplicationContext());
         doa.getLeerdoelen();
         doa.getSubdoelen();
+        setData();
     }
 }

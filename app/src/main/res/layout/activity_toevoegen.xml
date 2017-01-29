@@ -14,21 +14,22 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="8dp">
 
         <TextView
             android:text="Subdoel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView" />
+            android:id="@+id/textView"
+            android:layout_marginTop="30dp" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Subdoel"
             android:ems="10"
             android:id="@+id/subdoel_toevoegen" />
 
@@ -37,29 +38,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="30dp" />
 
-        <ExpandableListView
+        <Spinner
             android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:id="@+id/leerdoelen_lijst" />
+            android:layout_height="wrap_content"
+            android:id="@+id/leerdoelSpinner"
+            android:popupBackground="@color/colorPrimary"
+            android:spinnerMode="dialog" />
 
         <TextView
             android:text="Weken"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView3"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="30dp" />
 
-        <ExpandableListView
+        <Spinner
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:id="@+id/weken_lijst" />
+            android:layout_height="wrap_content"
+            android:id="@+id/weekSpinner"
+            android:popupBackground="@color/colorPrimary"
+            android:spinnerMode="dialog" />
 
         <Button
             android:text="Toevoegen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_toevoegen" />
+            android:id="@+id/btn_toevoegen"
+            android:layout_marginTop="50dp" />
     </LinearLayout>
 </RelativeLayout>

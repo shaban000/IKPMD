@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_instellingen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="shaban.jama.eindopdracht.Instellingen">
+
+    <TextView
+        android:text="Server IP adres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="43dp"
+        android:id="@+id/textView4"
+        android:hint="0.0.0.0"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/buttonIP"
+        android:layout_alignStart="@+id/buttonIP" />
+
+    <Button
+        android:text="Verander Server IP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:id="@+id/buttonIP"
+        android:layout_below="@+id/textIP"
+        android:layout_alignRight="@+id/textIP"
+        android:layout_alignEnd="@+id/textIP"
+        android:layout_alignLeft="@+id/textIP"
+        android:layout_alignStart="@+id/textIP"
+        android:onClick="changeIP" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/textIP"
+        android:layout_marginTop="9dp"
+        android:hint="0.0.0.0"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Inloggen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:id="@+id/buttonLogin"
+        android:layout_below="@+id/buttonIP"
+        android:layout_alignLeft="@+id/buttonIP"
+        android:layout_alignStart="@+id/buttonIP"
+        android:layout_alignRight="@+id/buttonIP"
+        android:layout_alignEnd="@+id/buttonIP"
+        android:onClick="loginKnop"/>
+
+    <Button
+        android:text="Verwijder Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonVerwijder"
+        android:layout_alignTop="@+id/buttonLogin"
+        android:layout_alignLeft="@+id/buttonLogin"
+        android:layout_alignStart="@+id/buttonLogin"
+        android:layout_marginTop="94dp"
+        android:layout_alignRight="@+id/buttonLogin"
+        android:layout_alignEnd="@+id/buttonLogin" />
+</RelativeLayout>

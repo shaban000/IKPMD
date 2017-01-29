@@ -10,22 +10,28 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:screenOrientation="portrait" >
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Toevoegen" />
+        <activity
+            android:name=".Toevoegen"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".Leren" />
-        <activity android:name=".Status" />
+        <activity
+            android:name=".Status"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".registeer" />
         <activity android:name=".Login" />
-        <activity android:name=".Dataverwerking"></activity>
-        <activity android:name=".Status" />
+        <activity android:name=".Dataverwerking" />
         <activity android:name=".Subdoelen" />
-        <activity android:name=".Subdoelen_done"></activity>
+        <activity android:name=".Subdoelen_done" />
+        <activity android:name=".Instellingen"></activity>
     </application>
 
 </manifest>

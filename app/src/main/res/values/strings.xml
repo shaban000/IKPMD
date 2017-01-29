@@ -5,6 +5,6 @@
     <string name="Leren">Leren</string>
     <string name="Tedoen">Te doen</string>
     <string name="Gedaan">Gedaan</string>
-    <string name="Meest">beheers je het meest</string>
-    <string name="Minst">beheers je het minst</string>
+    <string name="Meest">Deze leerdoelen beheerst u het meest.</string>
+    <string name="Minst">Deze leerdoelen beheerst u het minst.</string>
 </resources>
