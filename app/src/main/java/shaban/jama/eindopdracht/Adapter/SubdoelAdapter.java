@@ -2,6 +2,7 @@ package shaban.jama.eindopdracht.Adapter;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -23,10 +24,11 @@ import shaban.jama.eindopdracht.Model.Subdoel;
 
 public class SubdoelAdapter extends RecyclerView.Adapter<SubdoelAdapter.ViewHolder> {
     Context c;
+    private View v;
     DatabaseHelper databaseHelper = DatabaseHelper.getHelper(c);
     ArrayList<Subdoel> subdoels;
 
-    public SubdoelAdapter(Context c, ArrayList<Subdoel> subdoels){
+    public SubdoelAdapter(Context c, View v, ArrayList<Subdoel> subdoels){
         this.c = c;
         this.subdoels = subdoels;
     }
@@ -60,6 +62,7 @@ public class SubdoelAdapter extends RecyclerView.Adapter<SubdoelAdapter.ViewHold
         this.notifyItemRemoved(pos);
 
 
+
     }
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView nametxt;
@@ -71,7 +74,7 @@ public class SubdoelAdapter extends RecyclerView.Adapter<SubdoelAdapter.ViewHold
 
         @Override
         public void onClick(View v) {
-
+//            Snackbar.make(v,"HEllo sangam" ,Snackbar.LENGTH_SHORT).show();
         }
     }
 }

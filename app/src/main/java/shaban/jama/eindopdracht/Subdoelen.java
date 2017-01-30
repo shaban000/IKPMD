@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -24,15 +26,25 @@ import static shaban.jama.eindopdracht.Leren.weeknr;
 
 public class Subdoelen extends AppCompatActivity {
 
-    RecyclerView rv;
-    SubdoelAdapter adapter;
-    WeekAdapter weekAdapter;
-    Subdoel subdoel = new Subdoel();
+    private RecyclerView rv;
+    private SubdoelAdapter adapter;
+    private WeekAdapter weekAdapter;
+    private Subdoel subdoel = new Subdoel();
+    private LinearLayout ll;
+
+
+    Button button;
 
     ArrayList<Subdoel> subdoelen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        getSupportActionBar().setTitle("Subdoelen ToDo");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ll = (LinearLayout) findViewById(R.id.activity_subdoelen);
+
         super.onCreate(savedInstanceState);
         setData();
 
@@ -48,14 +60,21 @@ public class Subdoelen extends AppCompatActivity {
 
         subdoelen = new ArrayList<>();
         setContentView(R.layout.activity_subdoelen);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        button = (Button) findViewById(R.id.toDone);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),Subdoelen_done.class));
             }
         });
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(),Subdoelen_done.class));
+//            }
+//        });
 
         DatabaseHelper dbHelper = DatabaseHelper.getHelper(this);
 
@@ -72,52 +91,17 @@ public class Subdoelen extends AppCompatActivity {
 
         rv= (RecyclerView) findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
+        View v = getWindow().getDecorView().getRootView();
 
-        adapter = new SubdoelAdapter(this, subdoelen);
+        adapter = new SubdoelAdapter(getApplicationContext(),v,subdoelen);
 
         rv.setAdapter(adapter);
 
-        ItemTouchHelper.Callback callback=new SwiperHelper(adapter, Boolean.TRUE);
+        ItemTouchHelper.Callback callback=new SwiperHelper(adapter,getApplicationContext(), Boolean.TRUE);
+
         ItemTouchHelper helper = new ItemTouchHelper(callback);
         helper.attachToRecyclerView(rv);
     }
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        ContentValues l_value = new ContentValues();
-//        l_value.put(DatabaseInfo.Columns.LEERDOEL_NAME,"test");
-//
-//        dbHelper.insert(DatabaseInfo.databaseTabels.leerdoel, null, l_value);
-//
-//        Cursor rs = dbHelper.query(DatabaseInfo.databaseTabels.leerdoel,new String[]{"*"}, null, null, null, null, null);
-//        rs.moveToLast();
-//        Log.d("laaatse", "leerdoel :" +rs.getString(rs.getColumnIndex("Naam")));
-//        Log.d("laaatse", "leerdoel :" +rs.getString(rs.getColumnIndex("_id")));
-//
-//        ContentValues values = new ContentValues();
-//        values.put(DatabaseInfo.Columns.SUBDOEL_NAME,"Shaban");
-//        values.put(DatabaseInfo.Columns.WEEK,"WEEK2");
-//        values.put(DatabaseInfo.Columns.FK_ID_LEERDOEL,1);
-//        values.put(DatabaseInfo.Columns.VOLDAAN,Boolean.FALSE);
-//
-//        dbHelper.insert(DatabaseInfo.databaseTabels.subdoel, null, values);

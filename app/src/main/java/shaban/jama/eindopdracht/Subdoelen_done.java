@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -30,6 +32,9 @@ public class Subdoelen_done extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        getSupportActionBar().setTitle("Subdoelen Done");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         setContentView(R.layout.activity_subdoelen);
         DatabaseHelper dbHelper = DatabaseHelper.getHelper(this);
 
@@ -46,13 +51,13 @@ public class Subdoelen_done extends AppCompatActivity {
         rv = (RecyclerView) findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new SubdoelAdapter(this, subdoelen);
+        adapter = new SubdoelAdapter(this,getWindow().getDecorView().getRootView(), subdoelen);
         rv.setAdapter(adapter);
-        ItemTouchHelper.Callback callback = new SwiperHelper(adapter, Boolean.FALSE);
+        ItemTouchHelper.Callback callback = new SwiperHelper(adapter,getApplicationContext(), Boolean.FALSE);
         ItemTouchHelper helper = new ItemTouchHelper(callback);
         helper.attachToRecyclerView(rv);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.hide();
+        Button button = (Button) findViewById(R.id.toDone);
+        button.setVisibility(View.GONE);
     }
 }

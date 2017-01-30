@@ -22,15 +22,16 @@
         <activity
             android:name=".Toevoegen"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".Leren" />
-        <activity android:name=".Subdoelen" />
-        <activity android:name=".Subdoelen_done" />
+        <activity android:name=".Leren" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Subdoelen" android:parentActivityName=".Leren"/>
+        <activity android:name=".Subdoelen_done" android:parentActivityName=".Subdoelen"/>
         <activity
             android:name=".Status"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".registeer" android:parentActivityName=".Login"/>
         <activity android:name=".Login" android:parentActivityName=".Instellingen"/>
         <activity android:name=".Dataverwerking" android:parentActivityName=".Login"/>
+
         <activity android:name=".Instellingen"
             android:parentActivityName=".MainActivity"></activity>
     </application>
