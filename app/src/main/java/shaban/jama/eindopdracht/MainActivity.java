@@ -71,8 +71,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
+        setData();
+    }
+
+    @Override
+    public void onRestart() {
+        super.onResume();
         setupDatabase();
     }
+
+
 
     private void setData() {
         mChart = (PieChart) findViewById(R.id.chart);

@@ -3,7 +3,7 @@ package shaban.jama.eindopdracht.mSwiper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
-import shaban.jama.eindopdracht.mRecycler.RecycleViewAdapter;
+import shaban.jama.eindopdracht.Adapter.SubdoelAdapter;
 
 /**
  * Created by sangam on 10/01/2017.
@@ -11,10 +11,10 @@ import shaban.jama.eindopdracht.mRecycler.RecycleViewAdapter;
 
 public class SwiperHelper extends ItemTouchHelper.SimpleCallback{
 
-    private RecycleViewAdapter adapter;
+    private SubdoelAdapter adapter;
     private Boolean voldaan;
 
-    public SwiperHelper( RecycleViewAdapter adapter, boolean voldaan) {
+    public SwiperHelper(SubdoelAdapter adapter, boolean voldaan) {
         super(ItemTouchHelper.UP| ItemTouchHelper.DOWN,ItemTouchHelper.LEFT);
         this.adapter = adapter;
         this.voldaan = voldaan;

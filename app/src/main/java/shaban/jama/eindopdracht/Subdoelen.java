@@ -14,15 +14,20 @@ import java.util.ArrayList;
 
 import shaban.jama.eindopdracht.Database.DatabaseHelper;
 import shaban.jama.eindopdracht.Database.DatabaseInfo;
-import shaban.jama.eindopdracht.mRecycler.RecycleViewAdapter;
+import shaban.jama.eindopdracht.Adapter.SubdoelAdapter;
+import shaban.jama.eindopdracht.Adapter.WeekAdapter;
 import shaban.jama.eindopdracht.mSwiper.SwiperHelper;
 import shaban.jama.eindopdracht.Model.Subdoel;
+
+import static shaban.jama.eindopdracht.Leren.weeknr;
 
 
 public class Subdoelen extends AppCompatActivity {
 
     RecyclerView rv;
-    RecycleViewAdapter adapter;
+    SubdoelAdapter adapter;
+    WeekAdapter weekAdapter;
+    Subdoel subdoel = new Subdoel();
 
     ArrayList<Subdoel> subdoelen;
 
@@ -55,6 +60,50 @@ public class Subdoelen extends AppCompatActivity {
         DatabaseHelper dbHelper = DatabaseHelper.getHelper(this);
 
 
+        Bundle b = getIntent().getExtras();
+        Cursor rs = dbHelper.query(DatabaseInfo.databaseTabels.subdoel, new String[]{"*"}, "Voldaan = 0 AND Week ="+weeknr , null, null, null, null);
+        while (rs.moveToNext()) {
+            String naam = rs.getString(rs.getColumnIndex(DatabaseInfo.Columns.SUBDOEL_NAME));
+            Subdoel subdoel = new Subdoel();
+            subdoel.setNaam(naam);
+            subdoel.setId(rs.getInt(rs.getColumnIndex("_id")));
+            subdoelen.add(subdoel);
+        }
+
+        rv= (RecyclerView) findViewById(R.id.rv);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+
+        adapter = new SubdoelAdapter(this, subdoelen);
+
+        rv.setAdapter(adapter);
+
+        ItemTouchHelper.Callback callback=new SwiperHelper(adapter, Boolean.TRUE);
+        ItemTouchHelper helper = new ItemTouchHelper(callback);
+        helper.attachToRecyclerView(rv);
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //        ContentValues l_value = new ContentValues();
 //        l_value.put(DatabaseInfo.Columns.LEERDOEL_NAME,"test");
 //
@@ -72,30 +121,3 @@ public class Subdoelen extends AppCompatActivity {
 //        values.put(DatabaseInfo.Columns.VOLDAAN,Boolean.FALSE);
 //
 //        dbHelper.insert(DatabaseInfo.databaseTabels.subdoel, null, values);
-
-
-         Cursor rs = dbHelper.query(DatabaseInfo.databaseTabels.subdoel, new String[]{"*"}, "Voldaan = 0", null, null, null, null);
-
-        while (rs.moveToNext()) {
-            String naam = rs.getString(rs.getColumnIndex(DatabaseInfo.Columns.SUBDOEL_NAME));
-            Subdoel subdoel = new Subdoel();
-            subdoel.setNaam(naam);
-            subdoel.setId(rs.getInt(rs.getColumnIndex("_id")));
-            subdoelen.add(subdoel);
-        }
-
-        rv= (RecyclerView) findViewById(R.id.rv);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-
-        adapter = new RecycleViewAdapter(this, subdoelen);
-
-        rv.setAdapter(adapter);
-
-        ItemTouchHelper.Callback callback=new SwiperHelper(adapter, Boolean.TRUE);
-        ItemTouchHelper helper = new ItemTouchHelper(callback);
-        helper.attachToRecyclerView(rv);
-    }
-
-
-}
-

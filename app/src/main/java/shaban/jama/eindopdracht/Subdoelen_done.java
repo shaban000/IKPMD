@@ -12,14 +12,17 @@ import java.util.ArrayList;
 
 import shaban.jama.eindopdracht.Database.DatabaseHelper;
 import shaban.jama.eindopdracht.Database.DatabaseInfo;
-import shaban.jama.eindopdracht.mRecycler.RecycleViewAdapter;
+import shaban.jama.eindopdracht.Adapter.SubdoelAdapter;
 import shaban.jama.eindopdracht.mSwiper.SwiperHelper;
 import shaban.jama.eindopdracht.Model.Subdoel;
+
+import static shaban.jama.eindopdracht.Leren.weeknr;
 
 public class Subdoelen_done extends AppCompatActivity {
 
     RecyclerView rv;
-    RecycleViewAdapter adapter;
+    SubdoelAdapter adapter;
+    private Subdoel subdoel = new Subdoel();
 
     ArrayList<Subdoel> subdoelen = new ArrayList<>();
 
@@ -30,9 +33,8 @@ public class Subdoelen_done extends AppCompatActivity {
         setContentView(R.layout.activity_subdoelen);
         DatabaseHelper dbHelper = DatabaseHelper.getHelper(this);
 
-
-        Cursor rs = dbHelper.query(DatabaseInfo.databaseTabels.subdoel, new String[]{"*"}, "Voldaan = 1", null, null, null, null);
-
+        Bundle b = getIntent().getExtras();
+        Cursor rs = dbHelper.query(DatabaseInfo.databaseTabels.subdoel, new String[]{"*"}, "Voldaan = 1 AND Week ="+weeknr, null, null, null, null);
         while (rs.moveToNext()) {
             String naam = (String) rs.getString(rs.getColumnIndex(DatabaseInfo.Columns.SUBDOEL_NAME));
             Subdoel subdoel = new Subdoel();
@@ -44,7 +46,7 @@ public class Subdoelen_done extends AppCompatActivity {
         rv = (RecyclerView) findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new RecycleViewAdapter(this, subdoelen);
+        adapter = new SubdoelAdapter(this, subdoelen);
         rv.setAdapter(adapter);
         ItemTouchHelper.Callback callback = new SwiperHelper(adapter, Boolean.FALSE);
         ItemTouchHelper helper = new ItemTouchHelper(callback);

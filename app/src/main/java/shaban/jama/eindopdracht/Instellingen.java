@@ -16,7 +16,7 @@ import shaban.jama.eindopdracht.Database.DatabaseHelper;
 import shaban.jama.eindopdracht.Database.DatabaseInfo;
 
 public class Instellingen extends AppCompatActivity {
-    private static String ip = "192.168.0.106";
+    private static String ip = "145.101.74.48";
     private EditText textIP;
 
     @Override
