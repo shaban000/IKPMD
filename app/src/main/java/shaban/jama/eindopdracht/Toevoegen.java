@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -85,6 +86,7 @@ public class Toevoegen extends AppCompatActivity {
         int id = rs.getInt(0);
         DOA doa = new DOA(getApplicationContext());
         doa.addSubdoel(toevoegen.getText().toString(),String.valueOf(id),week.getSelectedItem().toString());
+        Toast.makeText(getApplicationContext(),"subdoel is toegevoegd",Toast.LENGTH_LONG).show();
         finish();
     }
 }

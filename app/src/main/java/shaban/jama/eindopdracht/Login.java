@@ -61,8 +61,6 @@ public class Login extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(),Dataverwerking.class);
                     i.putExtra("id",user.getString("id"));
                     i.putExtra("naam",user.getString("naam"));
-                    i.putExtra("inlognaam",user.getString("inlognaam"));
-                    i.putExtra("wachtwoord",user.getString("wachtwoord"));
                     startActivity(i);
 
                 }catch(Exception e)

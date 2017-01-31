@@ -28,7 +28,7 @@ public class SubdoelAdapter extends RecyclerView.Adapter<SubdoelAdapter.ViewHold
     DatabaseHelper databaseHelper = DatabaseHelper.getHelper(c);
     ArrayList<Subdoel> subdoels;
 
-    public SubdoelAdapter(Context c, View v, ArrayList<Subdoel> subdoels){
+    public SubdoelAdapter(Context c, ArrayList<Subdoel> subdoels){
         this.c = c;
         this.subdoels = subdoels;
     }
@@ -74,7 +74,6 @@ public class SubdoelAdapter extends RecyclerView.Adapter<SubdoelAdapter.ViewHold
 
         @Override
         public void onClick(View v) {
-//            Snackbar.make(v,"HEllo sangam" ,Snackbar.LENGTH_SHORT).show();
         }
     }
 }

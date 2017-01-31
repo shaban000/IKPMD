@@ -59,7 +59,7 @@ public class Status extends AppCompatActivity {
 
 
         mChart.setDescription("Status per week");           // Deze text moet naar de strings.xml
-        mChart.setDescriptionPosition(650,25);
+        mChart.setDescriptionPosition(420,20);
         mChart.animateY(1400);
         mChart.setDrawingCacheBackgroundColor(Color.BLACK);
         mChart.getLegend().setPosition(Legend.LegendPosition.ABOVE_CHART_LEFT);
@@ -139,7 +139,6 @@ public class Status extends AppCompatActivity {
         while(rs.moveToNext()){
             int id = rs.getInt(rs.getColumnIndex(BaseColumns._ID));
             String naam = rs.getString(rs.getColumnIndex(DatabaseInfo.Columns.LEERDOEL_NAME));
-            Log.d("------test----",naam);
             sortleerdoelen.add(new Leerdoel(id,naam));
         }
 

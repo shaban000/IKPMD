@@ -66,7 +66,6 @@ public class registeer extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d("error", String.valueOf(error));
-                        Log.d("testerror","error");
                     }
                 }){
                     @Override

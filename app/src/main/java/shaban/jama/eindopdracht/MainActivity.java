@@ -62,10 +62,7 @@ public class MainActivity extends AppCompatActivity {
         instellingen.animate().translationY(0);
         instellingen.animate().setDuration(duration);
         instellingen.animate();
-
         setupDatabase();
-
-
     }
 
     @Override
@@ -73,11 +70,10 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         setData();
     }
-
     @Override
     public void onRestart() {
-        super.onResume();
         setupDatabase();
+        super.onRestart();
     }
 
 
@@ -89,11 +85,11 @@ public class MainActivity extends AppCompatActivity {
         mChart.setDrawSliceText(true);
         mChart.getLegend().setEnabled(false);
 
-
         mChart.setTransparentCircleColor(Color.rgb(130, 130, 130));
         mChart.animateY(2000, Easing.EasingOption.EaseInQuart);
 
         DatabaseHelper dbHelper = DatabaseHelper.getHelper(getApplicationContext());
+
 
         Cursor rs = dbHelper.query(DatabaseInfo.databaseTabels.subdoel, new String[]{"COUNT(*)"}, "Voldaan = 1", null, null, null, null);
         rs.moveToFirst();
@@ -130,8 +126,11 @@ public class MainActivity extends AppCompatActivity {
         PieDataSet dataSet = new PieDataSet(yValues, "ECTS");
         dataSet.setColors(colors);
 
+
+
         PieData data = new PieData(xValues, dataSet);
         mChart.setData(data);
+
 
     }
 
@@ -155,6 +154,5 @@ public class MainActivity extends AppCompatActivity {
         DOA doa = new DOA(getApplicationContext());
         doa.getLeerdoelen();
         doa.getSubdoelen();
-        setData();
     }
 }

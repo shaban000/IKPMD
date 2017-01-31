@@ -30,7 +30,6 @@ public class Subdoelen extends AppCompatActivity {
     private SubdoelAdapter adapter;
     private WeekAdapter weekAdapter;
     private Subdoel subdoel = new Subdoel();
-    private LinearLayout ll;
 
 
     Button button;
@@ -42,8 +41,6 @@ public class Subdoelen extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Subdoelen ToDo");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        ll = (LinearLayout) findViewById(R.id.activity_subdoelen);
 
         super.onCreate(savedInstanceState);
         setData();
@@ -68,14 +65,6 @@ public class Subdoelen extends AppCompatActivity {
             }
         });
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(),Subdoelen_done.class));
-//            }
-//        });
-
         DatabaseHelper dbHelper = DatabaseHelper.getHelper(this);
 
 
@@ -91,9 +80,8 @@ public class Subdoelen extends AppCompatActivity {
 
         rv= (RecyclerView) findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        View v = getWindow().getDecorView().getRootView();
 
-        adapter = new SubdoelAdapter(getApplicationContext(),v,subdoelen);
+        adapter = new SubdoelAdapter(getApplicationContext(),subdoelen);
 
         rv.setAdapter(adapter);
 

@@ -51,7 +51,7 @@ public class Subdoelen_done extends AppCompatActivity {
         rv = (RecyclerView) findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new SubdoelAdapter(this,getWindow().getDecorView().getRootView(), subdoelen);
+        adapter = new SubdoelAdapter(this, subdoelen);
         rv.setAdapter(adapter);
         ItemTouchHelper.Callback callback = new SwiperHelper(adapter,getApplicationContext(), Boolean.FALSE);
         ItemTouchHelper helper = new ItemTouchHelper(callback);

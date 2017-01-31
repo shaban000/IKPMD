@@ -17,7 +17,7 @@ import shaban.jama.eindopdracht.Database.DatabaseHelper;
 import shaban.jama.eindopdracht.Database.DatabaseInfo;
 
 public class Instellingen extends AppCompatActivity {
-    private static String ip = "145.101.74.48";
+    private static String ip = "192.168.0.106";
     private EditText textIP;
 
     @Override
@@ -47,6 +47,7 @@ public class Instellingen extends AppCompatActivity {
             String whereArgs [] = new String [] {rs.getString(rs.getColumnIndex(BaseColumns._ID))};
             dbHelper.update(DatabaseInfo.databaseTabels.subdoel,values, where, whereArgs );
         }
+        Toast.makeText(getApplicationContext(),"U voortgang is verwijdert",Toast.LENGTH_SHORT).show();
     }
 
 
